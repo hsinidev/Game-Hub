@@ -4,37 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>FighterPlay - Unblocked Games, Play in Browser, Fullscreen</title>
+    <title>PvePlay: Unblocked Games - Play Free Online Games Fullscreen</title>
     
-    <meta name="description" content="Explore FighterPlay, a premier gaming hub designed for everyone. Discover a vast collection of educational and entertaining unblocked games, all playable directly in your browser with fullscreen mode and an ad-free experience.">
-    <meta name="keywords" content="unblocked games, online games, browser games, free games, fullscreen games, ad-free games, educational games, fighterplay">
-    <link rel="canonical" href="https://fighterplay.com" />
+    <meta name="description" content="Step into PvePlay's universe of unblocked games! 🎮 Play thousands of free online games instantly in your browser. Fullscreen, no downloads, no ads. The ultimate gaming hub for school and home.">
+    <link rel="canonical" href="https://pveplay.com" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fighterplay.com">
-    <meta property="og:title" content="FighterPlay - Unblocked Games, Play in Browser, Fullscreen">
-    <meta property="og:description" content="Explore FighterPlay, a premier gaming hub designed for everyone. Discover a vast collection of educational and entertaining unblocked games, all playable directly in your browser with fullscreen mode and an ad-free experience.">
-    <meta property="og:image" content="https://fighterplay.com/og-image.png">
+    <meta property="og:url" content="https://pveplay.com">
+    <meta property="og:title" content="PvePlay: Unblocked Games - Play Free Online Games Fullscreen">
+    <meta property="og:description" content="Step into PvePlay's universe of unblocked games! 🎮 Play thousands of free online games instantly in your browser. Fullscreen, no downloads, no ads. The ultimate gaming hub for school and home.">
+    <meta property="og:image" content="https://pveplay.com/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://fighterplay.com">
-    <meta property="twitter:title" content="FighterPlay - Unblocked Games, Play in Browser, Fullscreen">
-    <meta property="twitter:description" content="Explore FighterPlay, a premier gaming hub designed for everyone. Discover a vast collection of educational and entertaining unblocked games, all playable directly in your browser with fullscreen mode and an ad-free experience.">
-    <meta property="twitter:image" content="https://fighterplay.com/og-image.png">
+    <meta property="twitter:url" content="https://pveplay.com">
+    <meta property="twitter:title" content="PvePlay: Unblocked Games - Play Free Online Games Fullscreen">
+    <meta property="twitter:description" content="Step into PvePlay's universe of unblocked games! 🎮 Play thousands of free online games instantly in your browser. Fullscreen, no downloads, no ads. The ultimate gaming hub for school and home.">
+    <meta property="twitter:image" content="https://pveplay.com/og-image.png">
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Make Google Fonts non-blocking -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+    
     <style>
       body {
         font-family: 'Poppins', sans-serif;
-        background-color: #000;
+        background-color: #0d0d2b;
         color: white;
       }
+
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+
+      /* Nebula background layer */
       #galaxy-bg {
         position: fixed;
         top: 0;
@@ -42,31 +54,66 @@
         width: 100%;
         height: 100%;
         z-index: -1;
-        background: black;
         overflow: hidden;
+        background: 
+          linear-gradient(45deg, rgba(13, 13, 43, 0.9), rgba(44, 30, 74, 0.9), rgba(107, 61, 139, 0.9), rgba(26, 26, 58, 0.9));
+        background-size: 400% 400%;
+        animation: gradientAnimation 25s ease infinite;
       }
-      @keyframes move-twink-back {
-          from {background-position:0 0;}
-          to {background-position:-10000px 5000px;}
+
+      @keyframes gradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
       }
-      .stars, .twinkling {
-        position:absolute;
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
-        width:100%;
-        height:100%;
-        display:block;
+
+      /* Star layers using pseudo-elements for parallax effect */
+      #galaxy-bg::before, #galaxy-bg::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        background-repeat: repeat;
       }
-      .stars {
-        background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
-        z-index:0;
+
+      /* Small stars */
+      #galaxy-bg::before {
+        background-image: 
+          radial-gradient(1px 1px at 2% 3%, white, transparent),
+          radial-gradient(1px 1px at 8% 16%, white, transparent),
+          radial-gradient(1.5px 1.5px at 15% 45%, white, transparent),
+          radial-gradient(1px 1px at 22% 8%, white, transparent),
+          radial-gradient(1.5px 1.5px at 30% 20%, white, transparent),
+          radial-gradient(1px 1px at 42% 38%, white, transparent),
+          radial-gradient(1.5px 1.5px at 55% 65%, white, transparent),
+          radial-gradient(1px 1px at 62% 28%, white, transparent),
+          radial-gradient(1.5px 1.5px at 70% 80%, white, transparent),
+          radial-gradient(1px 1px at 82% 18%, white, transparent),
+          radial-gradient(1.5px 1.5px at 95% 45%, white, transparent);
+        background-size: 500px 500px;
+        animation: moveStars 120s linear infinite;
+        opacity: 0.6;
       }
-      .twinkling{
-        background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-        z-index:1;
-        animation:move-twink-back 200s linear infinite;
+
+      /* Medium stars */
+      #galaxy-bg::after {
+        background-image: 
+          radial-gradient(2px 2px at 10% 10%, white, transparent),
+          radial-gradient(2px 2px at 25% 5%, white, transparent),
+          radial-gradient(2.5px 2.5px at 45% 80%, white, transparent),
+          radial-gradient(2px 2px at 50% 30%, white, transparent),
+          radial-gradient(2.5px 2.5px at 75% 55%, white, transparent),
+          radial-gradient(2px 2px at 90% 95%, white, transparent);
+        background-size: 800px 800px;
+        animation: moveStars 80s linear infinite;
+        opacity: 0.7;
+      }
+      
+      @keyframes moveStars {
+        from { transform: translate(0, 0); }
+        to { transform: translate(-50%, -50%); }
       }
     </style>
 <script type="importmap">
@@ -75,17 +122,16 @@
     "react": "https://aistudiocdn.com/react@^19.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5"
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^6.25.1"
   }
 }
 </script>
 </head>
-<body class="bg-gray-900 text-white">
-    <div id="galaxy-bg">
-      <div class="stars"></div>
-      <div class="twinkling"></div>
-    </div>
+<body class="bg-transparent text-white">
+    <div id="galaxy-bg"></div>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <!-- Defer scripts to prevent render blocking -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script type="module" src="/index.tsx" defer></script>
 </body>
 </html>

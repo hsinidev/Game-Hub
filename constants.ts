@@ -243,7 +243,9 @@ const gameUrls = [
   "https://playszgames.com/wp-content/uploads/unblocked/zombie-derby-pixel-survival.html",
 ];
 
-const categories = ['Racing', 'Puzzle', 'Action', 'Sports', 'Strategy', 'Adventure', 'Skill', 'Multiplayer'];
+export const CATEGORIES = [
+  'All', 'Action', 'Adventure', 'Driving', 'Multiplayer', 'Puzzle', 'Racing', 'Shooting', 'Sports', 'Stickman', 'Strategy', 'Skill'
+];
 
 const toTitleCase = (str: string) => {
   return str.replace(/-/g, ' ').replace(/\w\S*/g, (txt) => {
@@ -251,10 +253,29 @@ const toTitleCase = (str: string) => {
   });
 };
 
+const getCategoryForGame = (name: string): string => {
+    const lowerName = name.toLowerCase();
+    if (lowerName.includes('car') || lowerName.includes('moto') || lowerName.includes('drift') || lowerName.includes('truck') || lowerName.includes('drive')) return 'Driving';
+    if (lowerName.includes('race') || lowerName.includes('rally')) return 'Racing';
+    if (lowerName.includes('soccer') || lowerName.includes('basket') || lowerName.includes('football') || lowerName.includes('golf') || lowerName.includes('pool') || lowerName.includes('cricket') || lowerName.includes('tennis')) return 'Sports';
+    if (lowerName.includes('gun') || lowerName.includes('shoot') || lowerName.includes('force') || lowerName.includes('strike') || lowerName.includes('sniper')) return 'Shooting';
+    if (lowerName.includes('stickman')) return 'Stickman';
+    if (lowerName.includes('2') || lowerName.includes('two') || lowerName.includes('bros') || lowerName.includes('multiplayer')) return 'Multiplayer';
+    if (lowerName.includes('fight') || lowerName.includes('mayhem') || lowerName.includes('wars') || lowerName.includes('battle') || lowerName.includes('derby')) return 'Action';
+    if (lowerName.includes('puzzle') || lowerName.includes('brain') || lowerName.includes('word') || lowerName.includes('chess') || lowerName.includes('solitaire') || lowerName.includes('block') || lowerName.includes('maze')) return 'Puzzle';
+    if (lowerName.includes('adventure') || lowerName.includes('vex') || lowerName.includes('escaping') || lowerName.includes('temple') || lowerName.includes('fancy-pants')) return 'Adventure';
+    if (lowerName.includes('idle') || lowerName.includes('tycoon') || lowerName.includes('merge')) return 'Strategy';
+    if (lowerName.includes('slope') || lowerName.includes('run') || lowerName.includes('dash') || lowerName.includes('fly') || lowerName.includes('color-switch')) return 'Skill';
+    
+    const fallbackCategories = ['Action', 'Skill', 'Adventure', 'Puzzle'];
+    const hash = lowerName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    return fallbackCategories[hash % fallbackCategories.length];
+};
+
 // Use a Set to store unique URLs
 const uniqueGameUrls = [...new Set(gameUrls)];
 
-export const GAMES: Game[] = uniqueGameUrls.map((url, index) => {
+export const GAMES: Game[] = uniqueGameUrls.map((url) => {
   const path = url.split('/').pop() || '';
   const id = path.replace('.html', '');
   const name = toTitleCase(id);
@@ -263,7 +284,7 @@ export const GAMES: Game[] = uniqueGameUrls.map((url, index) => {
   return {
     id,
     name,
-    category: categories[index % categories.length],
+    category: getCategoryForGame(name),
     src: url,
     thumbnail,
   };

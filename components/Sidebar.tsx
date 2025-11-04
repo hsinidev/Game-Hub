@@ -17,6 +17,8 @@ const Sidebar: React.FC<SidebarProps> = ({ games }) => {
                             src={game.thumbnail} 
                             alt={game.name} 
                             className="w-20 h-16 object-cover rounded-md"
+                            loading="lazy"
+                            decoding="async"
                              onError={(e) => {
                                 const target = e.target as HTMLImageElement;
                                 target.onerror = null;
@@ -33,4 +35,4 @@ const Sidebar: React.FC<SidebarProps> = ({ games }) => {
     );
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);

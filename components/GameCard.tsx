@@ -9,11 +9,13 @@ interface GameCardProps {
 const GameCard: React.FC<GameCardProps> = ({ game }) => {
     return (
         <Link to={`/game/${game.id}`} className="block group">
-            <div className="bg-gray-800 bg-opacity-50 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 group-hover:scale-105 group-hover:shadow-red-500/30 border border-gray-700">
+            <div className="bg-gray-800 bg-opacity-50 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(239,68,68,0.6)] border border-gray-700">
                 <img 
                     src={game.thumbnail} 
                     alt={game.name} 
-                    className="w-full h-40 object-cover" 
+                    className="w-full h-32 object-cover"
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.onerror = null; // prevent infinite loop
@@ -29,4 +31,4 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
     );
 };
 
-export default GameCard;
+export default React.memo(GameCard);

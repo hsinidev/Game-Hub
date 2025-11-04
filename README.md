@@ -1,6 +1,6 @@
-# Game Hub
+# PvePlay Game Hub
 
-Welcome to Game Hub, a modern gaming platform built with React and TypeScript. This application provides a seamless, ad-free gaming experience with a vast collection of unblocked games that can be played directly in your browser in fullscreen mode.
+Welcome to PvePlay, a modern gaming platform built with React and TypeScript. This application provides a seamless, ad-free gaming experience with a vast collection of unblocked games that can be played directly in your browser in fullscreen mode.
 
 ## Features
 
@@ -23,8 +23,8 @@ To get started with this project, clone the repository and follow the setup inst
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/game-hub.git
-   cd game-hub
+   git clone https://github.com/your-username/pveplay.git
+   cd pveplay
    ```
 
 2. **Install dependencies:**
@@ -55,7 +55,7 @@ To add a new game to the library, follow these steps:
    ```typescript
    const gameUrls = [
      // ...existing game URLs
-     "https://playszgames.com/wp-content/uploads/unblocked/new-game.html",
+     "https://example.com/new-game.html",
    ];
    ```
 

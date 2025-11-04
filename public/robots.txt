@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fighterplay.com/sitemap.xml
+Sitemap: https://pveplay.com/sitemap.xml
